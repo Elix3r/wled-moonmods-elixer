@@ -1,7 +1,0 @@
-[env:custom_build]
-extends = env:esp32_4MB_V4_S
-build_flags = ${env:esp32_4MB_V4_S.build_flags} -D WLED_DEBUG_IMPROV -D WLED_ENABLE_MQTT -D CLIENT_SSID='"WledEsp32"' -D CLIENT_PASS='"wledesp12345"' -D USERMOD_DALLASTEMPERATURE -D USERMOD_AUTO_SAVE -D USERMOD_PWM_FAN -D USERMOD_DALLASTEMPERATURE
-lib_deps = 
-  ${env:esp32_4MB_V4_S.lib_deps}
-  OneWire@~2.3.7
-  OneWire@~2.3.7
