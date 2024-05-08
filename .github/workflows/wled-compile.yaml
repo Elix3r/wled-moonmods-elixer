@@ -24,14 +24,14 @@ jobs:
       run: |
         rm -rf /tmp/WLEDtemp/* || true
         mkdir -p /tmp/WLEDtemp
-        wget https://github.com/Elix3r/wled-customusermod/blob/310182a526f790c91dc048f4d71be8970391904e/MoonModules-WLED-v0.14.1-beta.30-0-g0bd32c7_pwm.zip -O /tmp/WLEDtemp/mm.zip
+        wget https://github.com/Elix3r/WLED-moonmod/archive/refs/heads/mdev.zip -O /tmp/WLEDtemp/mm.zip
         unzip /tmp/WLEDtemp/mm.zip -d /tmp/WLEDtemp
         find /tmp/WLEDtemp -maxdepth 1 -mindepth 1 -name "*" -type d >> /tmp/WLEDtemp/wledfoldername
         cd `cat /tmp/WLEDtemp/wledfoldername`
         npm install
         echo '[env:custom_build]' >>platformio.ini
         echo 'extends = env:d1_mini' >>platformio.ini
-        echo 'build_flags = ${env:d1_mini.build_flags} -D WLED_DISABLE_ALEXA -D WLED_DISABLE_HUESYNC -D USERMOD_DALLASTEMPERATURE -D USERMOD_PWM_FAN -D USERMOD_DALLASTEMPERATURE' >>platformio.ini
+        echo 'build_flags = ${env:d1_mini.build_flags} -D WLED_ENABLE_MQTT -D WLED_DISABLE_HUESYNC -D USERMOD_DALLASTEMPERATURE -D USERMOD_PWM_FAN -D USERMOD_DALLASTEMPERATURE' >>platformio.ini
         echo 'lib_deps = ' >>platformio.ini
         echo '  ${env:d1_mini.lib_deps}' >>platformio.ini
         echo '  OneWire@~2.3.7' >>platformio.ini
