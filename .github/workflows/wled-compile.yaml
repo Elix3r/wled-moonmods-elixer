@@ -24,7 +24,7 @@ jobs:
       run: |
         rm -rf /tmp/WLEDtemp/* || true
         mkdir -p /tmp/WLEDtemp
-        wget https://api.github.com/repos/MoonModules/WLED/zipball/v0.14.1-beta.30 -O /tmp/WLEDtemp/mm.zip
+        wget https://github.com/Elix3r/wled-customusermod/blob/310182a526f790c91dc048f4d71be8970391904e/MoonModules-WLED-v0.14.1-beta.30-0-g0bd32c7_pwm.zip -O /tmp/WLEDtemp/mm.zip
         unzip /tmp/WLEDtemp/mm.zip -d /tmp/WLEDtemp
         find /tmp/WLEDtemp -maxdepth 1 -mindepth 1 -name "*" -type d >> /tmp/WLEDtemp/wledfoldername
         cd `cat /tmp/WLEDtemp/wledfoldername`
